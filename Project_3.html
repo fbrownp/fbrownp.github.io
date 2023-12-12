@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Modified hypoplastic model with fabric anisotropy</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo">Back to <strong>My portfolio</strong></a>
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/franco-brown-p" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/FBrownp" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Modified hypoplastic model with fabric anisotropy</h1>
+									</header>
+
+									<section id="banner">
+										<div class="content">
+
+											<h2>¿What did I do?</h2>
+											<p style="font-size: 18px; color: #3d3b3b">
+												In this project I implemented a modified version of the model proposed 
+												by <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nag.3444" target="_blank"> Liao <i> et al</i> (2022) </a> 
+												. Which used a different density function and two additional components as state variables, one that 
+												captures the behavior of high dilantacy sands, and one that captures the effect of accumulated shear strain
+												due to cyclic deformation &epsilon;<sub>acc</sub> , this factor is previously discussed in 
+												<a href="https://ascelibrary.org/doi/10.1061/9780784481479.017" target="_blank"> Fuentes <i> et al</i> (2018) </a>.
+												Results produced by the model are highly accurate (<strong>MAPE</strong> < 7%) for drained cases. Under undrained conditions, some considerations are proposed. 
+											</p>
+											
+
+										</div>
+										<span class="image object">
+											<img src="images/portfolio_fabric_model.png" alt="" />
+										</span>
+									</section>
+	
+									<hr class="major" />
+
+
+
+
+
+									<h2>A brief explanation about the model</h2>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>Differences between proposed and existent model for drained behavior</h3>
+											<p style="font-size: 16px; color: #3d3b3b">
+												The base model used in <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nag.3444" target="_blank"> Liao <i> et al</i> (2022) </a>
+												is the one proposed by <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nag.3444" target="_blank"> Wolffersdorff (1996) </a>
+												which correspond to a hypoplastic model, which in words of <a href="https://link.springer.com/article/10.1007/s11440-017-0550-4" target="_blank"> Wu (2017) </a>
+												have the deficiency of poisson ratio &nu; linked to &phi;<sub>crt</sub>, which was remedied by the author by adding a new term to the basic equation.
+												This new equations reads as:
+											</p>
+
+											<span class="image object">
+												<img src="images/hypo_model_1.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Coefficients of the model, were determinated by <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nag.3614" target="_blank"> Qian <i> et al</i> (2023) </a>
+												in a close form that add a Yield surface equation capable of represent Drucker-Prager and 
+												Matsuoka and Nakai criterions. Transforming <strong>equation 1</strong> into:
+											</p>
+
+											<span class="image object">
+												<img src="images/hypo_model_2.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Where <strong>I<sub>pe</sub></strong> represents the modification of initial stiffness due to 
+												relative density and <strong>f<sub>d</sub></strong> allows to predict the behaviour of sands
+												of different initial densities, the modified terms introduced in this work read as:
+
+											</p>
+
+											<span class="image object">
+												<img src="images/hypo_model_3.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												One more important modification introduced into the model is a coefficient that soften the 
+												stress peak due to high dilatancy, allowing to predict higher dilatancies without predicting 
+												high stress peaks, this is done by introducing a new &Phi; which is a state variable
+												of accumulated strain, which read as:
+
+											</p>
+
+											<span class="image object">
+												<img src="images/hypo_model_4.png" alt="" width="80%" />
+											</span>
+
+										</div>
+										<div class="col-6 col-12-small">
+
+											<h3>Results from the presented equation</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												The results obtained from the first iteration, i.e. without 
+												friction angle modification looks like:
+											</p>
+
+											<span class="image object">
+												<img src="images/old_1.png" alt="" width="100%" />
+											</span>
+							
+											<p style="font-size: 16px; color: #3d3b3b">
+												The friction angle modification produces a better description of 
+												high dilatancy sands as presented in the next Figure:
+
+											</p>
+
+											
+											<span class="image object">
+												<img src="images/new_model.png" alt="" width="100%" />
+											</span>
+
+										</div>
+
+									</div>
+
+
+
+
+
+									<hr class="major" />
+
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>Differences between proposed and existent model for undrained behavior</h3>
+											<p style="font-size: 16px; color: #3d3b3b">
+												The major difference between proposed model and the one by <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nag.3444" target="_blank"> Liao <i> et al</i> (2022) </a>
+												it's the aditional state variable considered to reproduce the cyclic mobility, where the proposed
+												variable read as:
+
+											</p>
+
+											<span class="image object">
+												<img src="images/hypo_model_5.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Where <strong>&eta;<sub>2</sub></strong> it's a parameters that controls the rate of accumulation,
+												<strong>&chi;<sub>2</sub></strong> controls the maximum value of <strong>&chi;</strong> parameters in 
+												intergranular strain model, and <strong><i>Z</i></strong> is the norm of the fabric tensor.
+											</p>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												The key component of the formulation it's that every part of the model can be calibrated separatedly,
+												and parameters related to semifluidized state doesn't change because of the additional state variable.
+											</p>
+
+											
+
+										</div>
+										<div class="col-6 col-12-small">
+
+											<h3>Comparison of the model with and without the new variable</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Simulation results are presented for three examples, the first one 
+												doesn't consider fabric anisotropy neither semifluidized state: 
+											</p>
+
+											<span class="image object">
+												<img src="images/normal_model.png" alt="" width="100%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Second one, considers fabric anisotropy and semifluidized state: 
+											</p>
+
+											<span class="image object">
+												<img src="images/hypo_model_6.png" alt="" width="100%" />
+											</span>
+							
+											<p style="font-size: 16px; color: #3d3b3b">
+												And the third one, considers the new variable to describe 
+												cyclic mobility:
+
+											</p>
+
+											
+											<span class="image object">
+												<img src="images/hypo_model_7.png" alt="" width="100%" />
+											</span>
+
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												As presented before, it can be observed that the new variable does not affect the 
+												semifluidized state and allows the user to simulate cyclic mobility, the calibration 
+												and formulation of this state variable should be dependent on initial density as has been 
+												studied by me, proximately, a formula will be introduced to represent the value of &chi;<sub>2</sub>
+												as a variable of <i><strong>e</strong></i>.
+
+											</p>
+
+
+										</div>
+
+
+
+									</div>
+
+									<hr class="major" />
+									<h2>A brief conclusion</h2>
+									<p style="font-size: 20px; color: #3d3b3b">
+										In this project I developed a new constitutive model by merging different 
+										components to reproduce the behaviour of sands. Under drained conditions, the model
+										captures with a better accuracy the dilatant behavior by introducing a new state variable.
+										For undrained cases, a state variable is introduced as a modification of the one proposed by 
+										<a href="https://ascelibrary.org/doi/10.1061/9780784481479.017" target="_blank"> Fuentes <i> et al</i> (2018) </a>
+										to reproduce cyclic mobility effects. 
+
+									</p>
+								</section>
+
+						</div>
+					</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

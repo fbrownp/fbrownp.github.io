@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Macroelement model development</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo">Back to <strong>My portfolio</strong></a>
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/franco-brown-p" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/FBrownp" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Macroelement model development</h1>
+									</header>
+
+									<section id="banner">
+										<div class="content">
+
+											<h2>¿What did I do?</h2>
+											<p style="font-size: 18px; color: #3d3b3b">
+												In this project I developed a macroelement model to represent foundations
+												as a plastic hinge model with 3 degrees of freedom. This helped to reduce the simulation time of
+											    soil-structure analysis by <strong> reducing the total simulation time by 80%</strong>.
+											</p>
+											<p style="font-size: 18px; color: #3d3b3b">
+												This project is split in different chapters, as a first approach to develop a simplified model 
+												a mathematical model that works with a machine learning algorithm are used to reproduce the yield surface
+												i.e the surface of ultimate allowable loads of the problem. Then we used this model to formulate a hypoplastic differential
+												equation to capture the force-displacement behaviour of different foundations overlying sand. Finally results 
+												were compared with experimental data and numerical simulations.
+												
+											</p>
+
+										</div>
+										<span class="image object">
+											<img src="images/Imagen2.png" alt="" />
+										</span>
+									</section>
+	
+
+									<hr class="major" />
+
+
+									<h2>A brief explanation about the model</h2>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>¿What is a macroelement?</h3>
+											<p style="font-size: 16px; color: #3d3b3b">
+												A Macroelement model is a plastic hinge model, that allows 
+												the engineer to model a bigger domain in a simplified way.
+												In geotechnical engineering, macroelements are used to represent different
+												types of foundations, such as shallow foundations, caisson foundations or piles.
+
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_1.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Macroelements of different types have been proposed in geotechnical history, but this works relies
+												on the ones proposed by <a href="https://link.springer.com/article/10.1007/s11440-009-0087-2" target="_blank"> Salciarini <i> et al</i> (2009) </a> 
+												and <a href="https://www.sciencedirect.com/science/article/pii/S0020768309002492" target="_blank"> Grange <i> et al</i> (2009) </a>.
+												
+											</p>
+
+
+											<h3>Macroelement main components</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												The main components of a hypoplastic macrolements can be characterized as:
+												<ul>
+													<li style="font-size: 16px; color: #3d3b3b"> <strong>Yield surface</strong>: Surface that defines the ultimate allowable loads.</li>
+													<li style="font-size: 16px; color: #3d3b3b"> <strong>Non-linearity function</strong>: A function that controls the non linearity of the response or the <strong>shape</strong> of the right curve in the video.</li>
+													<li style="font-size: 16px; color: #3d3b3b"> <strong>Plastic potential</strong>: Surface that controls the direction of displacements or vector <strong>m</strong> in the next video.</li>
+												  </ul>
+
+												<span class="image main">
+													<video width="100%" controls poster="images/macroelement_2.png">
+														<source src="Presentación3-4.mp4" type="video/mp4">
+													</video>
+												</span>
+											</p>
+
+
+
+
+
+
+										</div>
+										<div class="col-6 col-12-small">
+
+											<h3>Procedure to formulate a model</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												The first step to formulate an applicable model is to define an expression for Yield surface
+												and a way to obtain directly the input parameters associated with it.
+											</p>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Aiming to reproduce different types of foundation a machine learning model plus a Yield surface model
+												are fitted, so we can directaly obtain the ultimate loads asocciated with different problems, for 
+												more information about <a href="Project_7.html" class="logo" target="_blank">check this project</a> .
+											</p>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												After formulating the Yield surface, the force-displacement model is formulated and coupled with uplift model
+												for shallow foundations. A video about the procedure is presented next.
+											</p>
+
+											<span class="image main">
+												<video width="100%" controls poster="images/macroelement_2.png">
+													<source src="Presentación3-5.mp4" type="video/mp4">
+												</video>
+											</span>
+							
+
+										</div>
+
+									</div>
+
+									<hr class="major" />
+
+									<h2>Results and comparisons</h2>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>Calibration of parameters</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Calibration parameters used in the macroelement are presented
+												in <strong>Table 1</strong>.
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_3.png" alt="" width="100%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												In <strong>Table 1</strong> different ways of obtaining the parameters are shown. It's necessary
+												to highlight that <strong>the most important parameters are in red color</strong>. For hardening parameters, this values
+												controls the non-linearity of the model. Plastic potential values are important to capture the
+												settlement values and Cyclic behavior parameters are used to described the unload-load part of the curve.
+
+											</p>
+											<p style="font-size: 16px; color: #3d3b3b">
+												A <a href="">Jupyter notebook is available</a> to show how the implemented model works in Python.
+											</p>
+
+											<h3>Comparison against simulations</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												The first validation for the macroelement model is to reproduce numerical simulations 
+												results presented in <a>Project 4</a>, the results obtained for loose sand are presented in <strong>Figure 1</strong> .
+
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_4.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+											</p>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Second validation example consist of a shallow foundation overlying dense sand, it is presented in <strong>Figure 2</strong> .
+
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_5.png" alt="" width="80%" />
+											</span>
+						
+
+
+										</div>
+										<div class="col-6 col-12-small">
+
+
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Third validation example consist of a shallow foundation overlying dense sand, subjected to the same horizontal load
+												but different vertical load level, it is presented in <strong>Figure 3</strong> .
+
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_6.png" alt="" width="80%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+											</p>
+
+											<h3>Validation against experimental data</h3>
+											<p style="font-size: 16px; color: #3d3b3b">
+												The macroelement is validated against data from 
+												<a href="https://eng.ox.ac.uk/media/9254/villalobos.pdf" target="_blank"> Villalobos (2008)</a>
+												the experimental data correspond to a caisson foundation subjected to one-way loading as 
+												presented in <strong>Figure 4</strong>.
+
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_7.png" alt="" width="90%" />
+											</span>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+											</p>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												Validation 2 against experimental data consist of a caisson foundation subjected to 
+												a two-way loading pattern as presented in <strong>Figure 5</strong>.
+
+											</p>
+
+											<span class="image object">
+												<img src="images/macroelement_8.png" alt="" width="90%" />
+											</span>
+										</div>
+
+									</div>
+
+
+
+									<hr class="major" />
+
+									<h2>Conclusions from this project</h2>
+									<p style="font-size: 20px; color: #3d3b3b">
+										In this project a macroelement for different types of foundations was developed,
+										tested and validated against experimental and numerical data.<strong> This macroelement model
+										can reduce simulation time of soil-structure simulations by at least 80% while maintaining
+										a 95% accuracy of the finite elements </strong>.
+
+									</p>
+								</section>
+
+						</div>
+					</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

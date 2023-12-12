@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>A coupled mathematical and machine learning model to predict foundation's capacity under combined loads</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<header id="header">
+								<a href="index.html" class="logo">Back to <strong>My portfolio</strong></a>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/franco-brown-p" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/FBrownp" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+								</ul>
+							</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>A coupled mathematical and machine learning model to predict foundation's capacity under combined loads</h1>
+									</header>
+
+									<section id="banner">
+										<div class="content">
+
+											
+											<h2>¿What did I do?</h2>
+											<p style="font-size: 20px; color: #3d3b3b">
+											In this project, I developed a Yield surface model for foundations subjected to multiple combinations of loads.
+											First, the variables of interest to produce a yield surface are selected, as a second step, the sampling space is defined. Then, a Yield surface expression is formulated 
+											and finally a machine learning model for regression is fitted using TensorFlow to automatize the process of calibration of constants for 
+											different problems.</p>
+											<p style="font-size: 20px; color: #3d3b3b">
+												A brief explanation is presented in the next chapters!!
+											</p>
+											
+
+										</div>
+										<span class="image object">
+											<img src="images/portfolio_foundation_machine.png" alt="" width="100%" />
+										</span>
+									</section>
+
+									<hr class="major" />
+
+									<!--Development of yield surface-->
+									<h2>Development of Yield surface model</h2>
+									<h3>Variable selection</h3>
+
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<p style="font-size: 16px; color: #3d3b3b">
+												The variables of interest to fit a simplified model are: <strong>c, &phi;, &delta;, H/Df</strong> and <strong>Df/B</strong>.
+												Soil parameters <strong>c</strong> and <strong>&phi;</strong> are selected to represent the usual resistance parameters 
+												used in every bearing capacity formula, <strong>&delta;</strong> is the percentage of interface resistance between soil and foundation. 
+												The last two factors were chosen to represent geometric properties and different types of foundations. The sampling
+												space is presented in <strong>Table 1</strong>.</p>
+											
+											<span class="image main">
+												<img src="images/foundation_machine_2.png" alt="" />
+											</span>
+											
+											<p style="font-size: 16px; color: #3d3b3b">Some examples of the foundations represented by the selected parameters are shown in <strong>Figure 1</strong>.</p>
+											<span class="image main">
+												<img src="images/foundation_machine_1.png" alt="" />
+											</span>
+
+										</div>
+										<div class="col-6 col-12-small">
+
+											<h3>Calculation definition</h3>
+
+											<p style="font-size: 16px; color: #3d3b3b">
+												<strong>OptumG2</strong> is used to determine the ultimate loads associated with every sample in <strong>Table 1</strong>.
+												All finite element limit analysis simulation
+												consisted in a foundation subjected to different levels of vertical load capacity
+												<strong> <i>V/V<sub>f</sub></i> </strong> subjected to combined loads as presented in the next video.
+												<span class="image main">
+													<video width="100%" height="300" controls poster="images/foundation_machine_3.png">
+														<source src="Presentación3.mp4" type="video/mp4">
+													</video>
+												</span>
+											</p>
+
+											<h3>Results from sampling</h3>
+											<p style="font-size: 16px; color: #3d3b3b">
+											When every calculation was completed. Every load pattern was used to calibrate a mathematical model
+											by hyperparameter optimization as presented in the next video.</p>
+											<span class="image main">
+												<video width="100%" height="300" controls poster="images/foundation_machine_4.png">
+													<source src="Presentación3-2.mp4" type="video/mp4">
+												</video>
+											</span>
+
+										</div>
+
+									</div>
+
+
+
+
+									<hr class="major" />
+
+
+									<h3>Results from optimization</h3>
+									<p style="font-size: 16px; color: #3d3b3b">An example of the results obtained from optimization process
+										is presented in the next Figure.</p>
+									<span class="image object">
+										<img src="images/foundation_machine_5.png" alt="" width="100%"/>
+									</span>
+									<p style="font-size: 16px; color: #3d3b3b">Where the mathematical model is shown in blue and 
+										data obtained from simulations is presented in red dots.</p>
+
+
+
+									<hr class="major" />
+
+									<h2>Machine learning model</h2>
+									<p style="font-size: 16px; color: #3d3b3b">The development of the complete machine learning model is presented in the
+										<a href="foundation_machine_learning/Foundation_data_ann.html" class="logo" target="_blank"> Jupyter Notebook.</a>
+									</p>
+									
+									<p style="font-size: 16px; color: #3d3b3b">The results obtained from mixing machine learning and mathematical model
+										allows us to do a parametric study of the foundation's shapes which is presented below:
+									</p>
+
+									<span class="image main">
+										<video width="100%" height="600" controls poster="images/foundation_machine_6.png">
+											<source src="Presentación3-3.mp4" type="video/mp4">
+										</video>
+									</span>
+
+									<p style="font-size: 16px; color: #3d3b3b">From the video it can be observed that data points are really well described
+										by the curves (<strong>Mathematical model + Machine learning</strong>) for different initial conditions.
+									</p>
+									<p style="font-size: 16px; color: #3d3b3b">It is also observable that the <strong>Yield surface</strong> model 
+										change with different geometries, specially the interaction in <strong>m<sub>i</sub></strong> - <strong>h<sub>i</sub></strong>
+										plane.
+									</p>
+
+									<hr class="major" />
+
+									<h2>A brief conclusion</h2>
+
+									<p style="font-size: 20px; color: #3d3b3b"> The use of
+										mathematical models with machine learning techniques allows to predict the capacity of foundations under
+										combined loads with high accuracy using an advanced expression to describe the yield surface that captures
+										the interaction between horizontal and moment loads for different geometries.
+									<hr class="major" />
+
+								</section>
+
+						</div>
+					</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
